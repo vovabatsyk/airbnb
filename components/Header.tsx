@@ -30,7 +30,10 @@ const Header: FC<PropsType> = () => {
       <div className='flex items-center space-x-1 md:space-x-4 justify-end text-gray-500'>
         <p className='hidden md:inline cursor-pointer'>Become a host</p>
         <FiGlobe className='h-6 w-6 cursor-pointer' />
-        <div className='flex border-2 rounded-full p-2 space-x-1 shadow-sm  cursor-pointer hover:shadow-md'>
+        <div
+          className='flex border-2 rounded-full p-2 space-x-1 shadow-sm  cursor-pointer hover:shadow-md active:scale-90
+          transition duration-150 ease'
+        >
           <FiMenu className='h-6 w-6 ' />
           <FaUserCircle className='h-6 w-6 ' />
         </div>
