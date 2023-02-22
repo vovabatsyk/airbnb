@@ -10,7 +10,7 @@ const SmallCard: FC<PropsType> = ({ explore }: PropsType) => {
   return (
     <div
       key={explore.location}
-      className='flex items-center mb-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/4
+      className='flex items-center mb-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 select-none
     '
     >
       <Image
