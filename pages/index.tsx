@@ -9,7 +9,7 @@ interface PropsType {
 
 const Home = ({ exploreData }: PropsType) => {
   return (
-    <div>
+    <div className='select-none'>
       <Head>
         <title>Airbnb</title>
         <link
