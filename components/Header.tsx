@@ -32,7 +32,7 @@ const Header: FC<PropsType> = () => {
         <FiGlobe className='h-6 w-6 cursor-pointer' />
         <div
           className='flex border-2 rounded-full p-2 space-x-1 shadow-sm  cursor-pointer hover:shadow-md active:scale-90
-          transition duration-150 ease'
+          transition duration-150 ease select-none'
         >
           <FiMenu className='h-6 w-6 ' />
           <FaUserCircle className='h-6 w-6 ' />

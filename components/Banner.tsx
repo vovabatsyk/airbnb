@@ -17,7 +17,7 @@ const Banner: FC<PropsType> = () => {
         <button
           className='bg-white px-6 py-2 mt-2 shadow-md hover:shadow-xl 
           rounded-full text-xl text-blue-800 font-bold active:scale-90
-          transition duration-150 ease'
+          transition duration-150 ease select-none'
         >
           I'm flexible
         </button>
