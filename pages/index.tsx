@@ -1,6 +1,13 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { Header, Banner, SmallCard, MediumCard } from '../components';
+import {
+  Header,
+  Banner,
+  SmallCard,
+  MediumCard,
+  LargeCard,
+  Footer,
+} from '../components';
 import { Explore } from '../types/Explore';
 import { Leave } from '../types/Leave';
 
@@ -25,7 +32,7 @@ const Home = ({ exploreData, leaveData }: PropsType) => {
         <section className='pt-6'>
           <h2 className='text-4xl font-semibold pb-5'>Explore Nearby</h2>
           <div className='flex flex-wrap'>
-            {exploreData.map((e) => (
+            {exploreData?.map((e) => (
               <SmallCard
                 key={e.location}
                 explore={e}
@@ -35,8 +42,8 @@ const Home = ({ exploreData, leaveData }: PropsType) => {
         </section>
         <section className='pt-6'>
           <h2 className='text-4xl font-semibold pb-5'>Leave Anywhere</h2>
-          <div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
-            {leaveData.map((leave) => (
+          <div className='flex space-x-3 overflow-scroll scrollbar-hide p-3 ml-3'>
+            {leaveData?.map((leave) => (
               <MediumCard
                 key={leave.title}
                 leave={leave}
@@ -44,7 +51,14 @@ const Home = ({ exploreData, leaveData }: PropsType) => {
             ))}
           </div>
         </section>
+        <LargeCard
+          img='https://links.papareact.com/4cj'
+          title='The Greatest Outdoors'
+          description='Wishlist curated by Airbnb'
+          buttonContext='Get Inspired'
+        />
       </main>
+      <Footer />
     </div>
   );
 };
