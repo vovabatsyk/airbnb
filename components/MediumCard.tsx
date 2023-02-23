@@ -8,15 +8,16 @@ interface PropsType {
 
 const MediumCard: FC<PropsType> = ({ leave }) => {
   return (
-    <div className='cursor-pointer hover:opacity-90 '>
-      <Image
-        src={leave.img}
-        width={300}
-        height={300}
-        alt={`${leave.title} image`}
-        className='rounded-xl'
-      />
-      <h3 className='text-md md:font-semibold md:text-lg'>{leave.title}</h3>
+    <div className=' cursor-pointer hover:scale-105 transition translate duration-300 ease-out '>
+      <div className='relative h-80 w-80'>
+        <Image
+          src={leave.img}
+          fill
+          alt={`${leave.title} image`}
+          className='rounded-xl'
+        />
+      </div>
+      <h3 className='text-2xl md:font-semibold mt-3'>{leave.title}</h3>
     </div>
   );
 };
