@@ -20,7 +20,7 @@ const Home = ({ exploreData, leaveData }: PropsType) => {
   return (
     <div className='select-none'>
       <Head>
-        <title>Airbnb</title>
+        <title>Airbnb-Home</title>
         <link
           rel='icon'
           href='/airbnb.ico'
