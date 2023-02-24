@@ -5,15 +5,22 @@ import { FiMenu, FiGlobe } from 'react-icons/fi';
 import { FaUserCircle } from 'react-icons/fa';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import RangePicker from './RangePicker';
+import { useRouter } from 'next/router';
 
-interface PropsType {}
+interface PropsType {
+  placeholder?: string;
+}
 
-const Header: FC<PropsType> = () => {
+const Header: FC<PropsType> = ({ placeholder }) => {
+  const router = useRouter();
   const [searchInput, setSearchInput] = useState('');
 
   return (
     <header className='sticky top-0 z-50 grid grid-cols-3 bg-white shadow-lg p-5 md:px-10'>
-      <div className='flex relative items-center h10 cursor-pointer my-auto'>
+      <div
+        className='flex relative items-center h10 cursor-pointer my-auto'
+        onClick={() => router.push('/')}
+      >
         <Image
           src='https://links.papareact.com/qd3'
           alt='logo'
@@ -25,7 +32,7 @@ const Header: FC<PropsType> = () => {
       <div className='flex items-center md:border-2 rounded-full py-2 md:shadow-sm md:hover:shadow-md'>
         <input
           type='text'
-          placeholder='Start your search'
+          placeholder={placeholder || 'Start your search'}
           className='flex-grow outline-none pl-5 bg-transparent text-sm text-gray-400'
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
@@ -51,7 +58,12 @@ const Header: FC<PropsType> = () => {
           <FaUserCircle className='h-6 w-6 ' />
         </div>
       </div>
-      {searchInput && <RangePicker setSearchInput={setSearchInput} />}
+      {searchInput && (
+        <RangePicker
+          setSearchInput={setSearchInput}
+          searchInput={searchInput}
+        />
+      )}
     </header>
   );
 };

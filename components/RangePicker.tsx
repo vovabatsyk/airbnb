@@ -1,21 +1,20 @@
+import { useRouter } from 'next/router';
 import { Dispatch, FC, SetStateAction, useState } from 'react';
-import { DateRangePicker, DateRange, Range } from 'react-date-range';
+import { DateRangePicker, DateRange } from 'react-date-range';
 import { HiUsers } from 'react-icons/hi';
-import DateRangePicker2 from '@wojtekmaj/react-daterange-picker';
 
 interface PropsType {
   setSearchInput: Dispatch<SetStateAction<string>>;
+  searchInput: string;
 }
 
-const RangePicker: FC<PropsType> = ({ setSearchInput }) => {
+const RangePicker: FC<PropsType> = ({ setSearchInput, searchInput }) => {
+  const router = useRouter();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const [guests, setGuests] = useState(5);
-
-  const [value, setValue] = useState([new Date(), new Date()]);
+  const [guests, setGuests] = useState(1);
 
   const handleSelect = (ranges: any) => {
-    console.log(ranges);
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
   };
@@ -23,6 +22,19 @@ const RangePicker: FC<PropsType> = ({ setSearchInput }) => {
     startDate,
     endDate,
     key: 'selection',
+  };
+
+  const search = () => {
+    router.push({
+      pathname: '/search',
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        noOfGuests: guests,
+      },
+    });
+    setSearchInput('');
   };
   return (
     <>
@@ -67,7 +79,10 @@ const RangePicker: FC<PropsType> = ({ setSearchInput }) => {
             >
               Cancel
             </button>
-            <button className='flex-grow text-red-500 hover:text-red-700'>
+            <button
+              className='flex-grow text-red-500 hover:text-red-700'
+              onClick={search}
+            >
               Search
             </button>
           </div>
