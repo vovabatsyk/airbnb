@@ -36,7 +36,7 @@ const InfoCard: FC<PropsType> = ({ place }) => {
           </div>
           <div className='flex justify-between flex-row'>
             <div className='flex items-center space-x-2'>
-              <BsFillStarFill />
+              <BsFillStarFill className='text-yellow-700' />
               <span>{place.star}</span>
             </div>
             <p className='text-xs text-gray-700 my-4'>{place.total}</p>
